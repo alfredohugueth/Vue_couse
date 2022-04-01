@@ -1,6 +1,3 @@
 
-const persona = {
 
-}
-
-console.log(persona);
+console.log('Hola mundo')
