@@ -11,7 +11,18 @@
     <div id="myApp">
          <h1>
              Batman Quotes
+             
+            <small>
+                {{ newQuote }}
+            </small> 
+
          </h1>
+
+         <input 
+            type="text" 
+            v-model="newQuote"
+            v-on:keypress="addQuote"
+            />
 
          <ul>
              <li v-for="({ quote, author }, index) of quotes">
