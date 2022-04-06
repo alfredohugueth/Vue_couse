@@ -20,9 +20,8 @@ const app = Vue.createApp({
     },
 
     methods: {
-        addQuote( { code } ) {
-            if ( code == 'Enter')
-                this.quotes.unshift({ quote: this.newQuote, author: 'User'})
+        addQuote() {
+            this.quotes.unshift({ quote: this.newQuote })
         }
     }
 })
