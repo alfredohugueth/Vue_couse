@@ -28,9 +28,12 @@ export default {
         start : {
             type: Number,
             required: true,
-            default: 15
+            default: 15,
+            validator( value ) {
+                return value >= 0
+            }
         }
-    },
+    },  
     data() {
         return {
             counter : this.start
