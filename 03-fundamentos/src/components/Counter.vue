@@ -8,13 +8,17 @@
       = {{ squareCounter }}
   </p>
 
-  <button @click="sumCounter(1)"> 
-      +1
-  </button>
+  <div class="buttons-changes">
+    <button @click="sumCounter(1)">
+        +1
+    </button>
 
-  <button @click="sumCounter(-1)"> 
-      -1
-  </button>
+    <button @click="sumCounter(-1)">
+        -1
+    </button>
+  </div>
+
+
 </template>
 
 <script>
