@@ -18,7 +18,7 @@
                 {{ question }}
             </h2>
             <h1>
-              {{ answer == 'yes' ? 'Si' : 'No' }}
+              {{ answer === 'yes' ? 'Si' : 'No' }}
             </h1>
         </div>
 
@@ -49,6 +49,8 @@ export default {
     watch: {
       question( value ) {
         this.isValidQuestion = false
+
+        console.log( {value} )
 
         if( value.includes('?')) {
           this.isValidQuestion = true

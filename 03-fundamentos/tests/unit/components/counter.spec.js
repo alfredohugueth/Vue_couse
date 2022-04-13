@@ -41,7 +41,7 @@ describe( 'Counter Components', () => {
     test("It has to increment the counter value in 1",
         async () => {
 
-            // Click to the Increase button button
+            // Click to the Increase button
             const [increaseBtn, decreaseBtn] = wrapper.findAll('button')
             await increaseBtn.trigger('click')
 
@@ -56,5 +56,28 @@ describe( 'Counter Components', () => {
             // test the value
             value = wrapper.find('[data-testid="counter"]').text()
             expect( value ).toBe( "14" )
+        })
+
+    test("It has to establish the defaults values",
+        () => {
+            const { start } = (wrapper.props())
+
+            const value = wrapper.find('[data-testid="counter"]').text()
+
+            expect( Number(value) ).toBe( start )
+
+        })
+
+    test("It has to show the prop title of the component",
+        () => {
+            const title = 'Hello world'
+            const wrapper = shallowMount( Counter, {
+                props: {
+                    title: title,
+                    start: 5
+                }
+            } )
+
+            expect( wrapper.find('h2').text() ).toBe( title )
         })
 })
