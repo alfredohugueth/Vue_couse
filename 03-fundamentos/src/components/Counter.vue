@@ -8,6 +8,10 @@
       = {{ squareCounter }}
   </p>
 
+  <p data-testid="counter">
+    {{ counter }}
+  </p>
+
   <div class="buttons-changes">
     <button @click="sumCounter(1)">
         +1
