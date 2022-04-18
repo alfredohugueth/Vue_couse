@@ -78,6 +78,6 @@ describe( 'Counter Components', () => {
                 }
             } )
 
-            expect( wrapper.find('h2').text() ).toBe( title )
+            expect( wrapper.find('h2').text() ).toBe( title + ' 5' )
         })
 })
