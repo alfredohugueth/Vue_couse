@@ -37,13 +37,23 @@ export default {
     },
     methods: {
       async getAnswers() {
-        this.answer = 'Pensando...'
 
-        const { answer, image } = await fetch('https://yesno.wtf/api')
-            .then( res => res.json() )
+        try {
 
-        this.answer = answer
-        this.img = image
+          this.answer = 'Pensando...'
+
+          const { answer, image } = await fetch('https://yesno.wtf/api')
+              .then( res => res.json() )
+
+          this.answer = answer
+          this.img = image
+
+        } catch ( error ) {
+
+          this.answer = 'API not loading data correctly'
+          this.img = null
+
+        }
       }
     },
     watch: {

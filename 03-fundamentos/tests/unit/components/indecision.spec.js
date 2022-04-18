@@ -62,4 +62,13 @@ describe("indecision component",
                 expect( wrapper.vm.img ).toBe( 'https://yesno.wtf/assets/yes/2.gif' )
 
             })
+
+        test("Testing in getAnswers -- API fail", async () => {
+
+            fetch.mockImplementationOnce( () => Promise.reject('Promise failing'))
+
+            await wrapper.vm.getAnswers()
+
+            expect( wrapper.vm.answer ).toBe( 'API not loading data correctly' )
+        })
     })
