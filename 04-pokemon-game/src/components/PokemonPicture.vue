@@ -2,19 +2,37 @@
   <h1>
     <div class="pokemon-container">
     <!--  Sin color  -->
-    <img class="hidden-pokemon"
-         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+
+    <img v-if="showPokemon"
+         :src="imgSrc"
          alt="pokemon">
 
-<!--    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"-->
-<!--         alt="pokemon">-->
+    <img v-else
+         class="hidden-pokemon"
+         :src="imgSrc"
+         alt="pokemon">
     </div>
   </h1>
 </template>
 
 <script>
 export default {
-  name: "PokemonPicture"
+  name: "PokemonPicture",
+  props: {
+    pokemonId : {
+      required: true,
+      type : Number,
+    },
+    showPokemon : {
+      required: true,
+      type: Boolean
+    }
+  },
+  computed: {
+    imgSrc() {
+      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${ this.pokemonId }.svg`
+    }
+  }
 }
 </script>
 
